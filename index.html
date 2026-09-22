@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="爱是一道光 - 深度探索情感治愈、温暖语录与心灵成长的在线社区。分享爱与希望，点亮你生活中的每一个角落。">
+    <meta name="keywords" content="爱是一道光, 情感治愈, 温暖语录, 心灵成长, 治愈系">
+    <title>爱是一道光 - 情感治愈与温暖语录分享平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff7e5f;
+            --secondary-color: #feb47b;
+            --bg-color: #fff8f5;
+            --text-main: #2c3e50;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(255, 126, 95, 0.15);
+            --radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            padding: 8px 20px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 100px 0 80px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(255, 126, 95, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 126, 95, 0.2);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border-radius: 30px;
+            border: 2px solid #eee;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background: var(--white);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 126, 95, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* Quote Cards */
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .quote-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            color: rgba(255, 126, 95, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .quote-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .quote-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .quote-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .quote-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #fff0eb;
+            color: var(--primary-color);
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        /* Guide Section */
+        .guide-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .guide-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .guide-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .check-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .check-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .guide-image {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+        
+        .guide-image::after {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 16px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--white);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--text-light);
+            display: none;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: #bdc3c7;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .guide-container {
+                grid-template-columns: 1fr;
+            }
+            .guide-image {
+                order: -1;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">爱是一道光</div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#quotes">温暖语录</a></li>
+                    <li><a href="#guide">治愈指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="cta-btn">分享你的故事</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>爱是一道光<br><span>照亮你前行的路</span></h1>
+                <p>无论此刻你身处何方，这里都有温暖的话语为你停留。探索爱的力量，发现生活中的小确幸。</p>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索关于爱、希望或治愈的句子...">
+                    <button type="button">🔍</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <div class="container">
+            <section class="features">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">✨</div>
+                        <h3>温暖语录</h3>
+                        <p>精选全网最治愈的句子，每句都直击心灵。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📖</div>
+                        <h3>情感故事</h3>
+                        <p>真实发生的爱与被爱，给你前行的勇气。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💡</div>
+                        <h3>心灵成长</h3>
+                        <p>如何爱自己，如何更好地去爱别人。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤝</div>
+                        <h3>互助社区</h3>
+                        <p>在这里，你不是一个人在战斗。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Quote Section -->
+        <section id="quotes" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>爱的微光</h2>
+                    <p>生活中的每一个瞬间，都藏着光的影子</p>
+                </div>
+                <div class="quote-grid">
+                    <article class="quote-card">
+                        <div class="quote-content">
+                            <p class="quote-text">爱不是寻找一个完美的人，而是学会用完美的眼光，欣赏那个不完美的人。</p>
+                            <span class="quote-tag">自我接纳</span>
+                            <br><br>
+                            <span class="quote-author">—— 罗曼·罗兰</span>
+                        </div>
+                    </article>
+                    <article class="quote-card">
+                        <div class="quote-content">
+                            <p class="quote-text">真正的爱，不是彼此凝视，而是望向同一个方向。</p>
+                            <span class="quote-tag">伴侣关系</span>
+                            <br><br>
+                            <span class="quote-author">—— 圣埃克苏佩里</span>
+                        </div>
+                    </article>
+                    <article class="quote-card">
+                        <div class="quote-content">
+                            <p class="quote-text">爱是填满空虚的唯一解药，也是照亮黑暗的唯一光芒。</p>
+                            <span class="quote-tag">生活感悟</span>
+                            <br><br>
+                            <span class="quote-author">—— 佚名</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="section" style="background-color: #fafafa;">
+            <div class="container">
+                <div class="guide-container">
+                    <div class="guide-text">
+                        <h3>如何点亮心中的那束光？</h3>
+                        <p>每个人内心都有一盏灯，但在忙碌和挫折中，它常常被尘埃覆盖。通过简单的日常习惯，我们可以重新擦亮它。</p>
+                        <ul class="check-list">
+                            <li>每天记录三件值得感恩的小事</li>
+                            <li>学会对自己说“你已经做得很好了”</li>
+                            <li>与积极向上的人建立连接</li>
+                            <li>原谅过去的自己，拥抱未来的可能性</li>
+                        </ul>
+                    </div>
+                    <div class="guide-image">
+                        ☀️
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                    <p>关于爱与治愈，你可能有这些疑问</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">什么是“爱是一道光”的理念？</div>
+                        <div class="faq-answer">这是一种积极心理学视角的隐喻，强调爱、希望和善意具有驱散恐惧、带来温暖和指引方向的力量。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何向家人表达爱意？</div>
+                        <div class="faq-answer">爱不一定要轰轰烈烈，一句真诚的“谢谢”、一次耐心的倾听或是一个温暖的拥抱，都是有力的表达。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如果感到孤独，该怎么办？</div>
+                        <div class="faq-answer">孤独是内心渴望连接的信号。试着参与社区活动，或者通过阅读、写作来与自己的内心对话，重建内在秩序。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">爱是一道光</div>
+                    <p>致力于为每一个需要慰藉的心灵提供温暖的栖息地。在这里，我们相信爱是永恒的主题。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台简介</a></li>
+                        <li><a href="#">团队介绍</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容栏目</h4>
+                    <ul>
+                        <li><a href="#">情感语录</a></li>
+                        <li><a href="#">治愈故事</a></li>
+                        <li><a href="#">心理课堂</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 爱是一道光. All Rights Reserved. 
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
