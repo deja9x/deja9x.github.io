@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="酷我音乐官网 - 专注于高品质音乐播放，海量曲库，无损音质，MV，电台，以及个性化推荐。提供PC客户端、网页版及手机APP下载，一站式音乐生活体验。">
+    <meta name="keywords" content="酷我音乐官网,酷我音乐,在线音乐播放,免费音乐下载,无损音乐,酷我音乐盒,酷我K歌">
+    <title>酷我音乐官网 - 高品质音乐播放与曲库资源</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4d4f;
+            --secondary-color: #ff7875;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #121212;
+            --card-bg: #2a2a2a;
+            --text-main: #ffffff;
+            --text-sub: #b0b0b0;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--darker-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c1e1e 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 77, 79, 0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, #b0b0b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-sub);
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero-buttons .btn {
+            padding: 12px 32px;
+            font-size: 16px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Feature Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: #333;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        /* Section Styling */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+        }
+
+        .section-header a {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .section-header a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Music List Layout */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .music-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .music-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .card-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .music-card:hover .card-img-placeholder img {
+            opacity: 1;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .music-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            font-size: 40px;
+            color: white;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 5px;
+        }
+
+        .card-artist {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        /* Rank List */
+        .rank-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            transition: var(--transition);
+        }
+
+        .rank-item:hover {
+            background: #333;
+        }
+
+        .rank-num {
+            font-size: 24px;
+            font-weight: 800;
+            color: #555;
+            width: 40px;
+            text-align: center;
+            margin-right: 15px;
+            font-style: italic;
+        }
+
+        .rank-item:nth-child(1) .rank-num { color: #ff4d4f; }
+        .rank-item:nth-child(2) .rank-num { color: #ff7875; }
+        .rank-item:nth-child(3) .rank-num { color: #ffa39e; }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .rank-meta {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .rank-play {
+            color: var(--primary-color);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+                <span>酷我音乐</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">排行榜</a>
+                <a href="#">歌手</a>
+                <a href="#">电台</a>
+                <a href="#">酷我K歌</a>
+                <a href="#">会员中心</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="alert('请先登录')">登录</button>
+                <button class="btn btn-primary" onclick="alert('正在前往下载页面...')">下载客户端</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>听见好音乐</h1>
+                <p>海量曲库 · 无损音质 · 沉浸式MV · 个性化推荐</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="window.location.href='#player'">立即播放</button>
+                    <button class="btn btn-outline" onclick="window.location.href='#download'">下载APP</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Features Section -->
+            <section class="features">
+                <article class="feature-card">
+                    <span class="feature-icon">🎵</span>
+                    <h3>海量曲库</h3>
+                    <p>覆盖华语、欧美、日韩、流行、摇滚等多种音乐风格，满足你的听觉需求。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🎧</span>
+                    <h3>无损音质</h3>
+                    <p>FLAC、APE等无损格式支持，还原音乐最真实的细节与动态。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">📻</span>
+                    <h3>专属电台</h3>
+                    <p>根据你的听歌习惯，智能生成私人电台，每天发现新音乐。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🎤</span>
+                    <h3>酷我K歌</h3>
+                    <p>高清麦克风伴奏，海量歌曲库，随时随地享受K歌乐趣。</p>
+                </article>
+            </section>
+
+            <!-- Hot Recommendations -->
+            <section id="hot-music">
+                <div class="section-header">
+                    <h2>本周热门推荐</h2>
+                    <a href="#">查看更多 &rarr;</a>
+                </div>
+                <div class="music-grid">
+                    <!-- Card 1 -->
+                    <div class="music-card">
+                        <div class="card-img-placeholder">
+                            <img src="https://picsum.photos/seed/music1/300/300" alt="Album Art">
+                            <div class="play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">星河万里</div>
+                            <div class="card-artist">未知艺术家</div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="music-card">
+                        <div class="card-img-placeholder">
+                            <img src="https://picsum.photos/seed/music2/300/300" alt="Album Art">
+                            <div class="play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">城市夜归人</div>
+                            <div class="card-artist">深夜乐队</div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="music-card">
+                        <div class="card-img-placeholder">
+                            <img src="https://picsum.photos/seed/music3/300/300" alt="Album Art">
+                            <div class="play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">夏日微风</div>
+                            <div class="card-artist">清新组合</div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="music-card">
+                        <div class="card-img-placeholder">
+                            <img src="https://picsum.photos/seed/music4/300/300" alt="Album Art">
+                            <div class="play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">追梦赤子心</div>
+                            <div class="card-artist">励志合唱团</div>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="music-card">
+                        <div class="card-img-placeholder">
+                            <img src="https://picsum.photos/seed/music5/300/300" alt="Album Art">
+                            <div class="play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">雨后彩虹</div>
+                            <div class="card-artist">治愈系歌手</div>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="music-card">
+                        <div class="card-img-placeholder">
+                            <img src="https://picsum.photos/seed/music6/300/300" alt="Album Art">
+                            <div class="play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">复古摇滚</div>
+                            <div class="card-artist">老炮儿乐队</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top Charts -->
+            <section id="charts" style="margin-top: 60px;">
+                <div class="section-header">
+                    <h2>飙升榜单</h2>
+                    <a href="#">查看完整榜单 &rarr;</a>
+                </div>
+                <div class="rank-list">
+                    <div class="rank-item">
+                        <span class="rank-num">1</span>
+                        <div class="rank-info">
+                            <div class="rank-title">孤勇者</div>
+                            <div class="rank-meta">陈奕迅 · 热度 98.5w</div>
+                        </div>
+                        <div class="rank-play">▶</div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">2</span>
+                        <div class="rank-info">
+                            <div class="rank-title">漠河舞厅</div>
+                            <div class="rank-meta">柳爽 · 热度 95.2w</div>
+                        </div>
+                        <div class="rank-play">▶</div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">3</span>
+                        <div class="rank-info">
+                            <div class="rank-title">乌梅子酱</div>
+                            <div class="rank-meta">李荣浩 · 热度 92.1w</div>
+                        </div>
+                        <div class="rank-play">▶</div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">4</span>
+                        <div class="rank-info">
+                            <div class="rank-title">罗刹海市</div>
+                            <div class="rank-meta">刀郎 · 热度 89.8w</div>
+                        </div>
+                        <div class="rank-play">▶</div>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">5</span>
+                        <div class="rank-info">
+                            <div class="rank-title">晚风心里吹</div>
+                            <div class="rank-meta">房东的猫 · 热度 85.3w</div>
+                        </div>
+                        <div class="rank-play">▶</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于酷我</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>产品服务</h4>
+                <ul>
+                    <li><a href="#">酷我音乐PC版</a></li>
+                    <li><a href="#">酷我音乐手机版</a></li>
+                    <li><a href="#">酷我K歌</a></li>
+                    <li><a href="#">酷我影视</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">社区公约</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">官方社区</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Kuwo Music. All Rights Reserved. 沪ICP备12345678号</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为所有音乐卡片添加点击模拟播放效果
+            const cards = document.querySelectorAll('.music-card, .rank-item');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // 在实际应用中，这里会跳转到播放页面
+                    const title = this.querySelector('.card-title, .rank-title')?.innerText;
+                    if(title) {
+                        console.log(`正在播放: ${title}`);
+                        // 视觉反馈：高亮卡片
+                        this.style.transform = 'scale(0.98)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+                                                                   </html>
